@@ -1,0 +1,45 @@
+
+Descricao: Inicio da verificacao numero 0
+------------
+71416 >> 17416
+Descricao: Trocou-se o digito 7 pelo 1
+
+17416 >> 14716
+Descricao: Trocou-se o digito 7 pelo 4
+
+14716 >> 14176
+Descricao: Trocou-se o digito 7 pelo 1
+
+14176 >> 14167
+Descricao: Trocou-se o digito 7 pelo 6
+
+
+Descricao: Inicio da verificacao numero 1
+------------
+14167 >> 14167
+Descricao: Nao houve troca pois o numero 1 ja eh menor/igual que 4
+
+14167 >> 11467
+Descricao: Trocou-se o digito 4 pelo 1
+
+11467 >> 11467
+Descricao: Nao houve troca pois o numero 4 ja eh menor/igual que 6
+
+11467 >> 11467
+Descricao: Nao houve troca pois o numero 6 ja eh menor/igual que 7
+
+
+Descricao: Inicio da verificacao numero 2
+------------
+11467 >> 11467
+Descricao: Nao houve troca pois o numero 1 ja eh menor/igual que 1
+
+11467 >> 11467
+Descricao: Nao houve troca pois o numero 1 ja eh menor/igual que 4
+
+11467 >> 11467
+Descricao: Nao houve troca pois o numero 4 ja eh menor/igual que 6
+
+11467 >> 11467
+Descricao: Nao houve troca pois o numero 6 ja eh menor/igual que 7
+
