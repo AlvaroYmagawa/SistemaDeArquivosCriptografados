@@ -6,6 +6,11 @@
 package criptografia.simétrica;
 
 import java.io.File;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
 /**
@@ -13,9 +18,27 @@ import javax.crypto.SecretKey;
  * @author Aluno
  */
 public class Teste {
+
     public static void main(String[] args) {
-        SecretKey key = CriptSim.simetricKey();
-        CriptSim.simetricCript(new File("C:\\Users\\ld_si\\Criptografia\\src\\criptografia\\texto.txt"), key, "C:\\Users\\ld_si\\Criptografia\\src\\criptografia\\textoC.txt");
-        CriptSim.simetricDecript(new File("C:\\Users\\ld_si\\Criptografia\\src\\criptografia\\textoC.txt"), key, "C:\\Users\\ld_si\\Criptografia\\src\\criptografia\\textoD.txt");
+        
+        ChaveSimetrica chave = new ChaveSimetrica();
+        CriptSim.simetricCript(
+                new File("D:\\MEGA\\git\\"
+                        + "SistemaDeArquivosCriptografados\\client\\"
+                        + "Cripto\\src\\criptografia\\simétrica\\texto.txt"), 
+                chave.getChave(), 
+                "D:\\MEGA\\git\\SistemaDeArquivosCriptografados\\"
+                        + "client\\Cripto\\src\\criptografia\\"
+                        + "simétrica\\textoC.txt");
+        CriptSim.simetricDecript(
+                new File("D:\\MEGA\\git\\"
+                        + "SistemaDeArquivosCriptografados\\client\\"
+                        + "Cripto\\src\\criptografia\\simétrica\\"
+                        + "textoC.txt"), 
+                chave.getChave(), "D:\\MEGA\\git\\"
+                        + "SistemaDeArquivosCriptografados\\"
+                        + "client\\Cripto\\src\\criptografia\\"
+                        + "simétrica\\textoD.txt");
+
     }
 }
