@@ -1,11 +1,9 @@
-package Control;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package Control;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,53 +12,54 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author Kenzo
  */
-public class ControllerLogin implements Initializable {
-    
+public class ControllerPrincipal implements Initializable {
+
     @FXML
     private ImageView BGlogin;
-
     @FXML
     private Button bFechar;
-
-    @FXML
-    private Line line;
-
-    @FXML
-    private Label LBlname;
-
-    @FXML
-    private Button bMinimizar;
-    
     @FXML
     private ImageView imgFechar;
-    
+    @FXML
+    private Button bMinimizar;
     @FXML
     private ImageView imgMinimizar;
     @FXML
-    private Label LBtop;
+    private Line line;
     @FXML
-    private Label LBleft;
+    private Label lControladorTabela;
     @FXML
-    private TextField tfNome;
+    private TreeTableView<?> tArquivos;
     @FXML
-    private PasswordField pfSenha;
+    private TreeTableColumn<?, ?> cNome;
     @FXML
-    private Button btLogar;
-      
+    private TreeTableColumn<?, ?> cAutor;
+    @FXML
+    private TreeTableColumn<?, ?> cStatus;
+    @FXML
+    private Button bAdicionarArquivo;
+    @FXML
+    private Button bRemoverArquivo;
+    @FXML
+    private Label lNomeLogo;
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+        // TODO
     }    
 
     @FXML
@@ -92,9 +91,5 @@ public class ControllerLogin implements Initializable {
     private void minizarOnAction(ActionEvent event) {
         Main.minimizeScreen();
     }
-
-    @FXML
-    private void brLogarOnAction(ActionEvent event) {
-        Main.changeScreen("TelaPropriedade");
-    }
+    
 }

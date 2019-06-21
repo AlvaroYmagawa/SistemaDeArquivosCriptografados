@@ -1,11 +1,9 @@
-package Control;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package Control;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,53 +12,55 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author Kenzo
  */
-public class ControllerLogin implements Initializable {
-    
-    @FXML
-    private ImageView BGlogin;
+public class ControllerPropriedade implements Initializable {
 
     @FXML
     private Button bFechar;
-
-    @FXML
-    private Line line;
-
-    @FXML
-    private Label LBlname;
-
-    @FXML
-    private Button bMinimizar;
-    
     @FXML
     private ImageView imgFechar;
-    
+    @FXML
+    private Button bMinimizar;
     @FXML
     private ImageView imgMinimizar;
     @FXML
-    private Label LBtop;
+    private Line line;
     @FXML
-    private Label LBleft;
+    private TextArea taDados;
     @FXML
-    private TextField tfNome;
+    private Line line1;
     @FXML
-    private PasswordField pfSenha;
+    private ImageView BGlogin;
     @FXML
-    private Button btLogar;
-      
+    private Button bSalvar;
+    @FXML
+    private ImageView imgSalvar;
+    @FXML
+    private Label lNomeArquivo;
+    @FXML
+    private Button bAdicionarArquivo;
+    @FXML
+    private ImageView imgCompartilhar;
+    @FXML
+    private Button bVoltar;
+    @FXML
+    private ImageView imgVoltar;
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+        // TODO
     }    
 
     @FXML
@@ -94,7 +94,40 @@ public class ControllerLogin implements Initializable {
     }
 
     @FXML
-    private void brLogarOnAction(ActionEvent event) {
-        Main.changeScreen("TelaPropriedade");
+    private void salvarMouseExited(MouseEvent event) {
+        imgSalvar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/save.png")));
+    }
+
+    @FXML
+    private void salvarMouseEnter(MouseEvent event) {
+        imgSalvar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/save1.png")));
+    }
+
+    @FXML
+    private void salvarOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void voltarMouseExited(MouseEvent event) {
+        imgVoltar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/back.png")));
+    }
+
+    @FXML
+    private void voltarMouseEnter(MouseEvent event) {
+        imgVoltar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/back1.png")));
+    }
+
+    @FXML
+    private void voltarOnAction(ActionEvent event) {
+        Main.changeScreen("TelaPrincipal");
+    }
+
+    @FXML
+    private void changeColor(MouseEvent event) {
+        
+    }
+
+    @FXML
+    private void changeColor1(MouseEvent event) {
     }
 }
