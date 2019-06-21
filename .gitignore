@@ -1,3 +1,9 @@
 /client/CryptoFile/dist/
 /client/CryptoFile/build/
+<<<<<<< HEAD
+/client/Diffie/nbproject/private/
+/client/Diffie/build/
+/client/clientSide/build/
+=======
 /client/CryptoFile/nbproject/private/
+>>>>>>> 836a5b72db3027d9f260ca9597e937e35e2a74aa

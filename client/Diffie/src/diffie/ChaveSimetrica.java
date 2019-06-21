@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package criptografia.simétrica;
+package diffie;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import javax.crypto.KeyGenerator;
-import javax.crypto.KeyGeneratorSpi;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -25,8 +22,6 @@ public class ChaveSimetrica {
         try {
             KeyGenerator keygenerator = KeyGenerator.getInstance("DES");
             SecretKey chaveDES = keygenerator.generateKey();
-            KeyPairGenerator key = KeyPairGenerator.getInstance("DiffieHellman");
-            KeyPair keyD = key.generateKeyPair();
             this.chave = chaveDES;
         } catch (NoSuchAlgorithmException ex) {
             System.out.println("Erro - ChaveSimetrica.class: " + ex.getMessage());

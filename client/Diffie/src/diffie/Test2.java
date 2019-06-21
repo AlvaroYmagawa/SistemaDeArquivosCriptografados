@@ -3,21 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clientside;
-
-import clientside.control.ControllerLogin;
+package diffie;
 
 /**
  *
  * @author ld_si
  */
-public class ClientSide {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Test2 {
     public static void main(String[] args) {
-        new ControllerLogin(args);
+        Diffie dif = new Diffie();
     }
-    
 }

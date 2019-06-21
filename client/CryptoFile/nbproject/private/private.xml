@@ -2,6 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
             <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerPropriedade.java</file>
             <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerPrincipal.java</file>
@@ -10,5 +13,6 @@
             <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/View/TelaPropriedade.fxml</file>
             <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/Main.java</file>
         </group>
+>>>>>>> 836a5b72db3027d9f260ca9597e937e35e2a74aa
     </open-files>
 </project-private>

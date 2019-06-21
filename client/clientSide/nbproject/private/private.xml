@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ld_si/OneDrive/Documentos/NetBeansProjects/clientSide/src/clientside/ClientSide.java</file>
+            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSide/src/clientside/control/ControllerAPI.java</file>
+            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSide/src/clientside/model/valueObject/Sharing.java</file>
+            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSide/src/clientside/model/dataAcessObject/UserDAO.java</file>
+            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSide/src/clientside/model/valueObject/User.java</file>
+            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSide/src/clientside/ClientSide.java</file>
+            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSide/src/clientside/model/valueObject/ChaveSimetrica.java</file>
         </group>
     </open-files>
 </project-private>

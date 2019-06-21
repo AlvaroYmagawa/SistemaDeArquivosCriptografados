@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package criptografia.simétrica;
+package diffie;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -14,6 +14,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  *
@@ -29,11 +30,11 @@ public class Criptografia {
             return null;
         }
     }
-    public static byte[] simetricCript(byte[] txtPuro, SecretKey chaveDES) {
+    public static byte[] simetricCript(byte[] txtPuro, byte[] chave) {
 
         try {
 
-           
+            System.out.println("Chave recebida:"+chave);
 
             Cipher cifraDES;
 
@@ -41,7 +42,7 @@ public class Criptografia {
             cifraDES = Cipher.getInstance("DES/ECB/PKCS5Padding");
 
             // Inicializa a cifra para o processo de encriptação
-            cifraDES.init(Cipher.ENCRYPT_MODE, chaveDES);
+            cifraDES.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(chave, 0, chave.length, "DES"));
             
 
             // Texto puro
@@ -64,7 +65,7 @@ public class Criptografia {
         
     }
     
-     public static byte[] simetricDecript(byte[] txtPuro, SecretKey chaveDES) {
+     public static byte[] simetricDecript(byte[] txtPuro, byte[] chave) {
 
         try {
 
@@ -76,7 +77,7 @@ public class Criptografia {
             cifraDES = Cipher.getInstance("DES/ECB/PKCS5Padding");
 
             // Inicializa a cifra também para o processo de decriptação
-            cifraDES.init(Cipher.DECRYPT_MODE, chaveDES);
+            cifraDES.init(Cipher.DECRYPT_MODE, new SecretKeySpec(chave, 0, chave.length, "DES"));
 
             // Decriptografa o texto
             byte[] textoDecriptografado = cifraDES.doFinal(txtPuro);
