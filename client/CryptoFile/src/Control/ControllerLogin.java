@@ -95,6 +95,6 @@ public class ControllerLogin implements Initializable {
 
     @FXML
     private void brLogarOnAction(ActionEvent event) {
-        Main.changeScreen("TelaPrincipal");
+        Main.changeScreen("TelaPropriedade");
     }
 }

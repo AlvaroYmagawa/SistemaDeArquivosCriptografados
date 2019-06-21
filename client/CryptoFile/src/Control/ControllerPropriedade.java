@@ -12,8 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
@@ -23,10 +22,8 @@ import javafx.scene.shape.Line;
  *
  * @author Kenzo
  */
-public class ControllerPrincipal implements Initializable {
+public class ControllerPropriedade implements Initializable {
 
-    @FXML
-    private ImageView BGlogin;
     @FXML
     private Button bFechar;
     @FXML
@@ -38,21 +35,25 @@ public class ControllerPrincipal implements Initializable {
     @FXML
     private Line line;
     @FXML
-    private Label lControladorTabela;
+    private TextArea taDados;
     @FXML
-    private TreeTableView<?> tArquivos;
+    private Line line1;
     @FXML
-    private TreeTableColumn<?, ?> cNome;
+    private ImageView BGlogin;
     @FXML
-    private TreeTableColumn<?, ?> cAutor;
+    private Button bSalvar;
     @FXML
-    private TreeTableColumn<?, ?> cStatus;
+    private ImageView imgSalvar;
+    @FXML
+    private Label lNomeArquivo;
     @FXML
     private Button bAdicionarArquivo;
     @FXML
-    private Button bRemoverArquivo;
+    private ImageView imgCompartilhar;
     @FXML
-    private Label lNomeLogo;
+    private Button bVoltar;
+    @FXML
+    private ImageView imgVoltar;
 
     /**
      * Initializes the controller class.
@@ -91,5 +92,42 @@ public class ControllerPrincipal implements Initializable {
     private void minizarOnAction(ActionEvent event) {
         Main.minimizeScreen();
     }
-    
+
+    @FXML
+    private void salvarMouseExited(MouseEvent event) {
+        imgSalvar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/save.png")));
+    }
+
+    @FXML
+    private void salvarMouseEnter(MouseEvent event) {
+        imgSalvar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/save1.png")));
+    }
+
+    @FXML
+    private void salvarOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void voltarMouseExited(MouseEvent event) {
+        imgVoltar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/back.png")));
+    }
+
+    @FXML
+    private void voltarMouseEnter(MouseEvent event) {
+        imgVoltar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/back1.png")));
+    }
+
+    @FXML
+    private void voltarOnAction(ActionEvent event) {
+        Main.changeScreen("TelaPrincipal");
+    }
+
+    @FXML
+    private void changeColor(MouseEvent event) {
+        
+    }
+
+    @FXML
+    private void changeColor1(MouseEvent event) {
+    }
 }

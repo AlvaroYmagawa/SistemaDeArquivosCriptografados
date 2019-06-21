@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="864.0" style="-fx-background-color: #290948;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.ControllerPropriedade">
+   <children>
+      <ImageView fx:id="BGlogin" fitHeight="119.0" fitWidth="218.0" layoutX="29.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/BGpurple.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="bFechar" layoutX="831.0" layoutY="2.0" mnemonicParsing="false" onAction="#fecharOnAction" onMouseEntered="#fecharMouseEnter" onMouseExited="#fecharMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
+         <graphic>
+            <ImageView fx:id="imgFechar" fitHeight="35.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="bMinimizar" layoutX="790.0" layoutY="4.0" mnemonicParsing="false" onAction="#minizarOnAction" onMouseEntered="#MinimizarMouseEnter" onMouseExited="#MinimizarMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
+         <graphic>
+            <ImageView fx:id="imgMinimizar" fitHeight="35.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/minimize.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Line fx:id="line" endX="710.0" endY="30.0" layoutX="161.0" layoutY="6.0" startX="-160.0" startY="30.0" stroke="#330e59" strokeWidth="2.0" />
+      <TextArea fx:id="taDados" layoutX="83.0" layoutY="137.0" prefHeight="564.0" prefWidth="700.0" />
+      <Line fx:id="line1" endX="701.0" endY="30.0" layoutX="166.0" layoutY="108.0" startX="-160.0" startY="30.0" stroke="#330e59" strokeWidth="2.0" />
+      <Button fx:id="bSalvar" layoutX="83.0" layoutY="4.0" mnemonicParsing="false" onAction="#salvarOnAction" onMouseEntered="#salvarMouseEnter" onMouseExited="#salvarMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
+         <graphic>
+            <ImageView fx:id="imgSalvar" fitHeight="35.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/save.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lNomeArquivo" layoutX="203.0" layoutY="61.0" prefHeight="41.0" prefWidth="205.0" text="Nome do arquivo" textFill="#dad9d9">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="bCompartilhar" contentDisplay="CENTER" layoutX="599.0" layoutY="71.0" mnemonicParsing="false" onMouseEntered="#changeColor1" onMouseExited="#changeColor" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: orange;" text="Compartilhar" textFill="#340e5b" />
+      <ImageView fx:id="imgCompartilhar" fitHeight="26.0" fitWidth="80.0" layoutX="621.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/share.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="bVoltar" layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#voltarOnAction" onMouseEntered="#voltarMouseEnter" onMouseExited="#voltarMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
+         <graphic>
+            <ImageView fx:id="imgVoltar" fitHeight="35.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

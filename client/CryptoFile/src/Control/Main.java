@@ -13,6 +13,7 @@ public class Main extends Application {
     private static Stage stanceStage;
     public static Scene loginScene;
     public static Scene mainScreenScene;
+    public static Scene propertyScene;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -22,6 +23,9 @@ public class Main extends Application {
         loginScene = new Scene(loginFxml);
         Parent mainScreenFxml = FXMLLoader.load(getClass().getResource("/View/TelaPrincipal.fxml"));
         mainScreenScene = new Scene(mainScreenFxml);
+        Parent propertyFxml = FXMLLoader.load(getClass().getResource("/View/TelaPropriedade.fxml"));
+        propertyScene = new Scene(propertyFxml);
+        
         //-------------------------------
         stage.initStyle(StageStyle.UNDECORATED);
        
@@ -33,8 +37,13 @@ public class Main extends Application {
         switch(screen){
             case "TelaLogin":
                 stanceStage.setScene(loginScene);
+                break;
             case "TelaPrincipal":
                 stanceStage.setScene(mainScreenScene);
+                break;
+            case "TelaPropriedade":
+                stanceStage.setScene(propertyScene);
+                break;
         }
     }
     
