@@ -62,10 +62,6 @@ public class Main extends Application {
         stanceStage.setIconified(true);
     }
     
-    public static void newScreen(){
-        stanceStage.setScene(shareScene);
-    }
-    
     public static void main(String[] args) {
         launch(args);
     }

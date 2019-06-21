@@ -88,4 +88,5 @@ public class ControllerPropriedade implements Initializable {
     private void bCompartilharOnAction(ActionEvent event) {
         Main.changeScreen("TelaCompartilhamento");
     }
+    
 }
