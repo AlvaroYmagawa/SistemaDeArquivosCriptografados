@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="269.0" prefWidth="584.0" style="-fx-background-color: #290948;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Control.ControllerCompartilhamento">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="275.0" text="Compartihar com outras pessoas" textFill="#e4e2e2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lAdicionarUsuário" layoutX="14.0" layoutY="74.0" text="Adicionar Pessoas" textFill="#e4e2e2" />
+      <ComboBox fx:id="cbAdicionarUsuário" layoutX="14.0" layoutY="104.0" prefHeight="34.0" prefWidth="475.0" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;" />
+      <ComboBox fx:id="cbPermissão" layoutX="499.0" layoutY="104.0" onAction="#cbPermissãoOnAction" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2; -fx-font-color: orange;" />
+      <Label layoutX="17.0" layoutY="152.0" prefHeight="17.0" prefWidth="110.0" text="Compartilhado com " textFill="#e4e2e2" />
+      <Button fx:id="bAdicionarUsuário" contentDisplay="CENTER" layoutX="17.0" layoutY="213.0" mnemonicParsing="false" onAction="#bAdcionarUsuárioOnAction" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: orange;" text="Concluído" textFill="#340e5b" />
+      <Label layoutX="127.0" layoutY="152.0" prefHeight="17.0" prefWidth="324.0" text="NOME USUÁRIO(s)" textFill="#e4e2e2" />
+      <ImageView fx:id="imgPermissão" fitHeight="25.0" fitWidth="23.0" layoutX="511.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pen.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
