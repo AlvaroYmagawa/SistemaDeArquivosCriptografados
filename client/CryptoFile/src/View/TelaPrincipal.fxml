@@ -46,8 +46,8 @@
          <graphic>
             <TreeTableView fx:id="tArquivos" prefHeight="458.0" prefWidth="578.0" style="-fx-background-color: #290948 #290948; -fx-border-colo: #330e59;">
               <columns>
-                <TreeTableColumn fx:id="cNome" prefWidth="183.0" style="-fx-label-color: #fff; -fx-background-color: #290948; -fx-border-color: #330e59;" text="Nome" />
-                <TreeTableColumn fx:id="cAutor" prefWidth="183.0" style="-fx-text-fill: #fff; -fx-background-color: #290948; -fx-border-color: #330e59;" text="Autor" />
+                <TreeTableColumn fx:id="cNome" prefWidth="183.0" style="-fx-label-color: #fff; -fx-background-color: #290948; -fx-border-color: #330e59;" text="Nome do Arquivo" />
+                <TreeTableColumn fx:id="cAutor" prefWidth="183.0" style="-fx-text-fill: #fff; -fx-background-color: #290948; -fx-border-color: #330e59;" text="Proprietário" />
                   <TreeTableColumn fx:id="cStatus" prefWidth="183.0" style="-fx-text-fill: white; -fx-background-color: #290948; -fx-border-color: #330e59;" text="Status" />
               </columns>
             </TreeTableView>

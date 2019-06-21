@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Control;
 
 import java.net.URL;
@@ -17,117 +12,81 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
 
-/**
- * FXML Controller class
- *
- * @author Kenzo
- */
+
 public class ControllerPropriedade implements Initializable {
 
-    @FXML
-    private Button bFechar;
-    @FXML
-    private ImageView imgFechar;
-    @FXML
-    private Button bMinimizar;
-    @FXML
-    private ImageView imgMinimizar;
-    @FXML
-    private Line line;
-    @FXML
-    private TextArea taDados;
-    @FXML
-    private Line line1;
-    @FXML
-    private ImageView BGlogin;
-    @FXML
-    private Button bSalvar;
-    @FXML
-    private ImageView imgSalvar;
-    @FXML
-    private Label lNomeArquivo;
-    @FXML
-    private Button bAdicionarArquivo;
-    @FXML
-    private ImageView imgCompartilhar;
-    @FXML
-    private Button bVoltar;
-    @FXML
-    private ImageView imgVoltar;
+    @FXML private Button bFechar;
+    @FXML private ImageView imgFechar;
+    @FXML private Button bMinimizar;
+    @FXML private ImageView imgMinimizar;
+    @FXML private Line line;
+    @FXML private TextArea taDados;
+    @FXML private Line line1;
+    @FXML private ImageView BGlogin;
+    @FXML private Button bSalvar;
+    @FXML private ImageView imgSalvar;
+    @FXML private Label lNomeArquivo;
+    @FXML private Button bAdicionarArquivo;
+    @FXML private ImageView imgCompartilhar;
+    @FXML private Button bVoltar;
+    @FXML private ImageView imgVoltar;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
 
-    @FXML
-    private void fecharMouseExited(MouseEvent event) {
+    @FXML private void fecharMouseExited(MouseEvent event) {
         imgFechar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/close.png")));
     }
 
-    @FXML
-    private void fecharMouseEnter(MouseEvent event) {
+    @FXML private void fecharMouseEnter(MouseEvent event) {
         imgFechar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/close1.png")));
     } 
 
-    @FXML
-    private void fecharOnAction(ActionEvent event) {
+    @FXML private void fecharOnAction(ActionEvent event) {
         Main.closeScreen();
     }
 
-    @FXML
-    private void MinimizarMouseExited(MouseEvent event) {
+    @FXML private void MinimizarMouseExited(MouseEvent event) {
         imgMinimizar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/minimize.png")));
     }
 
-    @FXML
-    private void MinimizarMouseEnter(MouseEvent event) {
+    @FXML private void MinimizarMouseEnter(MouseEvent event) {
         imgMinimizar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/minimize1.png")));
     }
 
-    @FXML
-    private void minizarOnAction(ActionEvent event) {
+    @FXML private void minizarOnAction(ActionEvent event) {
         Main.minimizeScreen();
     }
 
-    @FXML
-    private void salvarMouseExited(MouseEvent event) {
+    @FXML private void salvarMouseExited(MouseEvent event) {
         imgSalvar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/save.png")));
     }
 
-    @FXML
-    private void salvarMouseEnter(MouseEvent event) {
+    @FXML private void salvarMouseEnter(MouseEvent event) {
         imgSalvar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/save1.png")));
     }
 
-    @FXML
-    private void salvarOnAction(ActionEvent event) {
+    @FXML private void salvarOnAction(ActionEvent event) {
     }
 
-    @FXML
-    private void voltarMouseExited(MouseEvent event) {
+    @FXML private void voltarMouseExited(MouseEvent event) {
         imgVoltar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/back.png")));
     }
 
-    @FXML
-    private void voltarMouseEnter(MouseEvent event) {
+    @FXML private void voltarMouseEnter(MouseEvent event) {
         imgVoltar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/back1.png")));
     }
 
-    @FXML
-    private void voltarOnAction(ActionEvent event) {
+    @FXML private void voltarOnAction(ActionEvent event) {
         Main.changeScreen("TelaPrincipal");
     }
 
-    @FXML
-    private void changeColor(MouseEvent event) {
+    @FXML private void changeColor(MouseEvent event) {
         
     }
 
-    @FXML
-    private void changeColor1(MouseEvent event) {
+    @FXML private void changeColor1(MouseEvent event) {
     }
 }
