@@ -26,10 +26,11 @@ public class ControllerPropriedade implements Initializable {
     @FXML private Button bSalvar;
     @FXML private ImageView imgSalvar;
     @FXML private Label lNomeArquivo;
-    @FXML private Button bAdicionarArquivo;
     @FXML private ImageView imgCompartilhar;
     @FXML private Button bVoltar;
     @FXML private ImageView imgVoltar;
+    @FXML
+    private Button bCompartilhar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -83,10 +84,8 @@ public class ControllerPropriedade implements Initializable {
         Main.changeScreen("TelaPrincipal");
     }
 
-    @FXML private void changeColor(MouseEvent event) {
-        
-    }
-
-    @FXML private void changeColor1(MouseEvent event) {
+    @FXML
+    private void bCompartilharOnAction(ActionEvent event) {
+        Main.changeScreen("TelaCompartilhamento");
     }
 }

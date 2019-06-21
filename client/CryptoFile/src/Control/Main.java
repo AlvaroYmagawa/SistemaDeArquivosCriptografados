@@ -11,9 +11,11 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
     
     private static Stage stanceStage;
+    private static Stage newStage;
     public static Scene loginScene;
     public static Scene mainScreenScene;
     public static Scene propertyScene;
+    public static Scene shareScene;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -25,6 +27,8 @@ public class Main extends Application {
         mainScreenScene = new Scene(mainScreenFxml);
         Parent propertyFxml = FXMLLoader.load(getClass().getResource("/View/TelaPropriedade.fxml"));
         propertyScene = new Scene(propertyFxml);
+        Parent shareFxml = FXMLLoader.load(getClass().getResource("/View/TelaCompartilhamento.fxml"));
+        shareScene = new Scene(shareFxml);
         
         //-------------------------------
         stage.initStyle(StageStyle.UNDECORATED);
@@ -44,6 +48,9 @@ public class Main extends Application {
             case "TelaPropriedade":
                 stanceStage.setScene(propertyScene);
                 break;
+            case "TelaCompartilhamento":
+                stanceStage.setScene(shareScene);
+                break;
         }
     }
     
@@ -53,6 +60,10 @@ public class Main extends Application {
     
     public static void minimizeScreen(){
         stanceStage.setIconified(true);
+    }
+    
+    public static void newScreen(){
+        stanceStage.setScene(shareScene);
     }
     
     public static void main(String[] args) {

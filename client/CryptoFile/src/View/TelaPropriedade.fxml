@@ -51,7 +51,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="bCompartilhar" contentDisplay="CENTER" layoutX="599.0" layoutY="71.0" mnemonicParsing="false" onMouseEntered="#changeColor1" onMouseExited="#changeColor" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: orange;" text="Compartilhar" textFill="#340e5b" />
+      <Button fx:id="bCompartilhar" contentDisplay="CENTER" layoutX="599.0" layoutY="71.0" mnemonicParsing="false" onAction="#bCompartilharOnAction" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: orange;" text="Compartilhar" textFill="#340e5b" />
       <ImageView fx:id="imgCompartilhar" fitHeight="26.0" fitWidth="80.0" layoutX="621.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/share.png" />

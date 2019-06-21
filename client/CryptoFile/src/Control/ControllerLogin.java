@@ -77,7 +77,7 @@ public class ControllerLogin implements Initializable {
 
     @FXML private void sair(KeyEvent event) {
         if(event.getCode() == KeyCode.ENTER){
-           Main.changeScreen("TelaPrincipal");
+           Main.changeScreen("TelaPropriedade");
         }
     }
 }
