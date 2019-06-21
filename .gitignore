@@ -1,2 +1,5 @@
 /client/CryptoFile/dist/
 /client/CryptoFile/build/
+/client/Diffie/nbproject/private/
+/client/Diffie/build/
+/client/clientSide/build/
