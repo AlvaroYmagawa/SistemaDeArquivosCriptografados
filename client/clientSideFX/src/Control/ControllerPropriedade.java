@@ -1,5 +1,6 @@
 package Control;
 
+import Main.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

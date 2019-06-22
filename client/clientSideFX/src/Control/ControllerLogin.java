@@ -5,8 +5,7 @@ package Control;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
+import Main.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,63 +20,189 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
 
 /**
  *
  * @author Kenzo
  */
 public class ControllerLogin implements Initializable {
+
+    @FXML
+    private ImageView BGlogin;
+    @FXML
+    private Button bFechar;
+    @FXML
+    private Line line;
+    @FXML
+    private Label LBlname;
+    @FXML
+    private Button bMinimizar;
+    @FXML
+    private ImageView imgFechar;
+    @FXML
+    private ImageView imgMinimizar;
+    @FXML
+    private Label LBtop;
+    @FXML
+    private Label LBleft;
+    @FXML
+    private TextField tfNome;
+    @FXML
+    private PasswordField pfSenha;
+    @FXML
+    private Button btLogar;
+
+    public ImageView getBGlogin() {
+        return BGlogin;
+    }
+
+    public void setBGlogin(ImageView BGlogin) {
+        this.BGlogin = BGlogin;
+    }
+
+    public Button getbFechar() {
+        return bFechar;
+    }
+
+    public void setbFechar(Button bFechar) {
+        this.bFechar = bFechar;
+    }
+
+    public Line getLine() {
+        return line;
+    }
+
+    public void setLine(Line line) {
+        this.line = line;
+    }
+
+    public Label getLBlname() {
+        return LBlname;
+    }
+
+    public void setLBlname(Label LBlname) {
+        this.LBlname = LBlname;
+    }
+
+    public Button getbMinimizar() {
+        return bMinimizar;
+    }
+
+    public void setbMinimizar(Button bMinimizar) {
+        this.bMinimizar = bMinimizar;
+    }
+
+    public ImageView getImgFechar() {
+        return imgFechar;
+    }
+
+    public void setImgFechar(ImageView imgFechar) {
+        this.imgFechar = imgFechar;
+    }
+
+    public ImageView getImgMinimizar() {
+        return imgMinimizar;
+    }
+
+    public void setImgMinimizar(ImageView imgMinimizar) {
+        this.imgMinimizar = imgMinimizar;
+    }
+
+    public Label getLBtop() {
+        return LBtop;
+    }
+
+    public void setLBtop(Label LBtop) {
+        this.LBtop = LBtop;
+    }
+
+    public Label getLBleft() {
+        return LBleft;
+    }
+
+    public void setLBleft(Label LBleft) {
+        this.LBleft = LBleft;
+    }
+
+    public TextField getTfNome() {
+        return tfNome;
+    }
+
+    public void setTfNome(TextField tfNome) {
+        this.tfNome = tfNome;
+    }
+
+    public PasswordField getPfSenha() {
+        return pfSenha;
+    }
+
+    public void setPfSenha(PasswordField pfSenha) {
+        this.pfSenha = pfSenha;
+    }
+
+    public Button getBtLogar() {
+        return btLogar;
+    }
+
+    public void setBtLogar(Button btLogar) {
+        this.btLogar = btLogar;
+    }
     
-    @FXML private ImageView BGlogin;
-    @FXML private Button bFechar;
-    @FXML private Line line;
-    @FXML private Label LBlname;
-    @FXML private Button bMinimizar;
-    @FXML private ImageView imgFechar;
-    @FXML private ImageView imgMinimizar;
-    @FXML private Label LBtop;
-    @FXML private Label LBleft;
-    @FXML private TextField tfNome;
-    @FXML private PasswordField pfSenha;
-    @FXML private Button btLogar;
-      
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-    }    
 
-    @FXML private void fecharMouseExited(MouseEvent event) {
+    }
+
+    @FXML
+    private void fecharMouseExited(MouseEvent event) {
         imgFechar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/close.png")));
     }
 
-    @FXML private void fecharMouseEnter(MouseEvent event) {
+    @FXML
+    private void fecharMouseEnter(MouseEvent event) {
         imgFechar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/close1.png")));
-    } 
+    }
 
-    @FXML private void fecharOnAction(ActionEvent event) {
+    @FXML
+    private void fecharOnAction(ActionEvent event) {
         Main.closeScreen();
     }
 
-    @FXML private void MinimizarMouseExited(MouseEvent event) {
+    @FXML
+    private void MinimizarMouseExited(MouseEvent event) {
         imgMinimizar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/minimize.png")));
     }
 
-    @FXML private void MinimizarMouseEnter(MouseEvent event) {
+    @FXML
+    private void MinimizarMouseEnter(MouseEvent event) {
         imgMinimizar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/minimize1.png")));
     }
 
-    @FXML private void minizarOnAction(ActionEvent event) {
+    @FXML
+    private void minizarOnAction(ActionEvent event) {
         Main.minimizeScreen();
     }
 
-    @FXML private void brLogarOnAction(ActionEvent event) {
-        Main.changeScreen("TelaPrincipal");
+    @FXML
+    private void brLogarOnAction(ActionEvent event) {
+
     }
 
-    @FXML private void sair(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER){
-           Main.changeScreen("TelaPropriedade");
+    @FXML
+    private void sair(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            Main.changeScreen("TelaPropriedade");
         }
+    }
+
+    @FXML
+    private void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btLogar) {
+           Main.changeScreen("TelaPrincipal");
+        }
+
     }
 }

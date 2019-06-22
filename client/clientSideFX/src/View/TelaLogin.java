@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package diffie;
+package View;
 
 /**
  *
  * @author ld_si
  */
-public class Node extends AESSecurityCap{
+public class TelaLogin {
     
 }

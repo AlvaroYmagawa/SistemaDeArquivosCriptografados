@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="868.0" style="-fx-background-color: #290948;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.ControllerPrincipal">
+<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="868.0" style="-fx-background-color: #290948;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.ControllerPrincipal">
    <children>
       <ImageView fx:id="BGlogin" fitHeight="175.0" fitWidth="502.0" layoutX="-59.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -53,7 +53,7 @@
             </TreeTableView>
          </graphic>
       </Label>
-      <Button fx:id="bAdicionarArquivo" contentDisplay="CENTER" layoutX="15.0" layoutY="320.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: orange;" text="ADICIONAR" textFill="#340e5b" />
-      <Button fx:id="bRemoverArquivo" contentDisplay="CENTER" layoutX="15.0" layoutY="379.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: orange;" text="REMOVER" textFill="#340e5b" />
+      <Button fx:id="bAdicionarArquivo" contentDisplay="CENTER" layoutX="15.0" layoutY="320.0" mnemonicParsing="false" onAction="#actionPerformed" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: orange;" text="ADICIONAR" textFill="#340e5b" />
+      <Button fx:id="bRemoverArquivo" contentDisplay="CENTER" layoutX="15.0" layoutY="379.0" mnemonicParsing="false" onAction="#actionPerformed" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: orange;" text="REMOVER" textFill="#340e5b" />
    </children>
 </AnchorPane>

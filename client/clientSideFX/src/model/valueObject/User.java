@@ -53,7 +53,7 @@ public class User implements Serializable{
     }
 
     public void setSenha(String Senha) {
-        this.Senha = Hash.gen(Senha);
+        this.Senha = Senha;
     }
 
     public String getToken() {

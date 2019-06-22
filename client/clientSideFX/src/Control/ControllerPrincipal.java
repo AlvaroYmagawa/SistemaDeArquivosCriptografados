@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Main.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -50,6 +51,13 @@ public class ControllerPrincipal implements Initializable {
 
     @FXML private void fecharOnAction(ActionEvent event) {
         Main.closeScreen();
+    }
+    
+    @FXML private void actionPerformed(ActionEvent event) {
+        System.out.println(event.getSource());
+        if (event.getSource() == bAdicionarArquivo) {
+            System.out.println("Adicionar:");
+        }
     }
 
     @FXML private void MinimizarMouseExited(MouseEvent event) {
