@@ -7,36 +7,51 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onKeyPressed="#sair" prefHeight="402.0" prefWidth="868.0" style="-fx-background-color: #290948;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.ControllerLogin">
+<AnchorPane id="AnchorPane" fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="100.0" onKeyPressed="#sair" prefHeight="446.0" prefWidth="895.0" style="-fx-background-color: #290948;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.ControllerLogin">
     <children>
-      <ImageView fx:id="BGlogin" fitHeight="451.0" fitWidth="755.0" layoutX="-85.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/BGpurple.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="LBtop" prefHeight="31.0" prefWidth="664.0" style="-fx-background-color: #290948;" />
-      <Label fx:id="LBleft" layoutX="605.0" prefHeight="445.0" prefWidth="263.0" style="-fx-background-color: #290948;" />
-      <TextField fx:id="tfNome" layoutX="627.0" layoutY="170.0" prefHeight="25.0" prefWidth="225.0" promptText="USERNAME" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;" />
-      <PasswordField fx:id="pfSenha" layoutX="627.0" layoutY="214.0" prefHeight="25.0" prefWidth="225.0" promptText="PASSWORD" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;" />
-      <Button fx:id="btLogar" contentDisplay="CENTER" layoutX="627.0" layoutY="278.0" mnemonicParsing="false" onAction="#brLogarOnAction" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: orange;" text="LOGIN" textFill="#340e5b" />
-      <Button fx:id="bFechar" layoutX="831.0" layoutY="2.0" mnemonicParsing="false" onAction="#fecharOnAction" onMouseEntered="#fecharMouseEnter" onMouseExited="#fecharMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
+      <Line endX="70.0" endY="440.0" layoutX="553.0" layoutY="6.0" startX="70.0" startY="-6.0" stroke="#330e59" />
+      <Pane fx:id="content" layoutX="-2.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="900.0">
+         <children>
+            <ImageView fitHeight="337.0" fitWidth="619.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/BGpurple.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="210.0" layoutY="300.0" opacity="0.95" prefHeight="31.0" prefWidth="197.0" text="Crypto File" textFill="#d35506">
+               <font>
+                  <Font name="Aero" size="36.0" />
+               </font>
+            </Label>
+            <Pane fx:id="loginPane" layoutX="617.0" layoutY="31.0" prefHeight="337.0" prefWidth="272.0">
+               <children>
+                  <Button contentDisplay="CENTER" layoutX="24.0" layoutY="274.0" mnemonicParsing="false" onAction="#brLogarOnAction" prefHeight="25.0" prefWidth="225.0" stylesheets="@Styles/buttonStyles.css.css" text="LOGIN" textFill="#340e5b" />
+                  <PasswordField layoutX="24.0" layoutY="198.0" prefHeight="25.0" prefWidth="225.0" promptText="Password" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;" />
+                  <TextField layoutX="25.0" layoutY="156.0" prefHeight="25.0" prefWidth="225.0" promptText="Username" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;" />
+                  <ImageView fitHeight="78.0" fitWidth="85.0" layoutX="97.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/user.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label layoutY="335.0" prefHeight="42.0" prefWidth="430.0" style="-fx-background-color: #290948;" />
+            <Label layoutY="-21.0" prefHeight="42.0" prefWidth="617.0" style="-fx-background-color: #290948;" />
+         </children>
+      </Pane>
+      <Button fx:id="bFechar" layoutX="858.0" layoutY="2.0" mnemonicParsing="false" onAction="#fechar" onMouseEntered="#fecharMouseEnter" onMouseExited="#fecharMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
          <graphic>
             <ImageView fx:id="imgFechar" fitHeight="35.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/close.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Line fx:id="line" endX="52.0" endY="439.0" layoutX="553.0" layoutY="6.0" startX="52.0" startY="-6.0" stroke="#330e59" />
-      <Label fx:id="LBlname" layoutX="194.0" layoutY="355.0" prefHeight="31.0" prefWidth="197.0" text="Crypto File" textFill="#d35506">
-         <font>
-            <Font name="Aero" size="36.0" />
-         </font>
-      </Label>
-      <Button fx:id="bMinimizar" layoutX="790.0" layoutY="4.0" mnemonicParsing="false" onAction="#minizarOnAction" onMouseEntered="#MinimizarMouseEnter" onMouseExited="#MinimizarMouseExited" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: none;">
+         </graphic>
+      </Button>
+      <Button fx:id="bMinimizar" layoutX="811.0" layoutY="-3.0" mnemonicParsing="false" onAction="#minimizar" onMouseEntered="#MinimizarMouseEnter" onMouseExited="#MinimizarMouseExited" prefHeight="42.0" prefWidth="30.0" style="-fx-background-color: none;">
          <graphic>
             <ImageView fx:id="imgMinimizar" fitHeight="35.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                <image>

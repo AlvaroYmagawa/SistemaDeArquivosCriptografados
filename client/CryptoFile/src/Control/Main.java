@@ -8,14 +8,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
 public class Main extends Application {
     
-    private static Stage stanceStage;
-    private static Stage newStage;
+    public static Stage stanceStage;
     public static Scene loginScene;
     public static Scene mainScreenScene;
     public static Scene propertyScene;
     public static Scene shareScene;
+    public static double x = 0;
+    public static double y = 0;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -62,7 +64,28 @@ public class Main extends Application {
         stanceStage.setIconified(true);
     }
     
+    public static void makeDragble(javafx.scene.layout.AnchorPane parent){
+        parent.setOnMousePressed((event) -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+        parent.setOnMouseDragged((event) ->{
+            stanceStage.setX(event.getScreenX() - x);
+            stanceStage.setY(event.getScreenY() - y);
+            stanceStage.setOpacity(0.8f);
+        });
+        
+        parent.setOnDragDone((event) ->{
+            stanceStage.setOpacity(1.0f);
+        });
+        
+        parent.setOnMouseReleased((event) ->{
+            stanceStage.setOpacity(1.0f); 
+        });
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }
+    
 }

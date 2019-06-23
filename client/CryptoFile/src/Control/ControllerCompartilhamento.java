@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javax.swing.DefaultComboBoxModel;
+import javafx.scene.layout.AnchorPane;
 
 public class ControllerCompartilhamento implements Initializable {
 
@@ -24,10 +24,13 @@ public class ControllerCompartilhamento implements Initializable {
     @FXML private ImageView imgPermissão;
     private List<String> listPermissão = new ArrayList<>();
     private static ObservableList<String> obsPermissão;
+    @FXML
+    private AnchorPane parent;
 
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       Main.makeDragble(parent);
        populaCbPermissão();
     }    
     
