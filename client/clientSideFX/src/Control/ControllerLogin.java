@@ -6,6 +6,7 @@ package Control;
  * and open the template in the editor.
  */
 import Main.Main;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -20,6 +21,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
+import model.businessObject.RetrofitCore;
+import model.dataAcessObject.user_api;
+import model.valueObject.User;
+import retrofit2.Call;
+import retrofit2.Retrofit;
 
 /**
  *
@@ -147,10 +153,7 @@ public class ControllerLogin implements Initializable {
     public void setBtLogar(Button btLogar) {
         this.btLogar = btLogar;
     }
-    
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -201,8 +204,30 @@ public class ControllerLogin implements Initializable {
     @FXML
     private void actionPerformed(ActionEvent e) {
         if (e.getSource() == btLogar) {
-           Main.changeScreen("TelaPrincipal");
+            try {
+                User user = new User();
+                user.setEmail(tfNome.getText());
+                user.setSenha(pfSenha.getText());
+                
+                Retrofit retrofit = RetrofitCore.retrofit();
+                user_api api = retrofit.create(user_api.class);
+                
+                Call<User> call = api.Signin(user);
+                User u = call.execute().body();
+                if (user.getEmail().equals(u.getEmail())) {
+                    System.out.println("Login autorizado");
+                    Main.changeScreen("TelaPrincipal");
+                }else{
+                    System.out.println("Login nao autorizado");
+                }
+                
+            } catch (IOException ex) {
+                System.out.println("Erro - "+ex.getMessage());
+            }
+
+           
         }
 
     }
+
 }
