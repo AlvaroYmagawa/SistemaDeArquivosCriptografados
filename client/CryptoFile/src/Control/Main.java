@@ -1,10 +1,12 @@
 package Control;
 
 
+import java.awt.geom.Rectangle2D;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -34,24 +36,36 @@ public class Main extends Application {
         
         //-------------------------------
         stage.initStyle(StageStyle.UNDECORATED);
-       
+        
         stage.setScene(loginScene);//Mostra a tela desejada
         stage.show();
+        
+        centerScreen();
+    }
+    
+    public static void centerScreen(){
+        javafx.geometry.Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();//Centraliza a tela
+        stanceStage.setX((primScreenBounds.getWidth() - stanceStage.getWidth()) / 2);
+        stanceStage.setY((primScreenBounds.getHeight() - stanceStage.getHeight()) / 2);
     }
     
     public static void changeScreen(String screen){
         switch(screen){
             case "TelaLogin":
                 stanceStage.setScene(loginScene);
+                centerScreen();
                 break;
             case "TelaPrincipal":
                 stanceStage.setScene(mainScreenScene);
+                centerScreen();
                 break;
             case "TelaPropriedade":
                 stanceStage.setScene(propertyScene);
+                centerScreen();
                 break;
             case "TelaCompartilhamento":
                 stanceStage.setScene(shareScene);
+                centerScreen();
                 break;
         }
     }
