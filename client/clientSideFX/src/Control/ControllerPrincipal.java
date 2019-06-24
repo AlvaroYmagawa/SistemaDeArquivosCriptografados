@@ -9,32 +9,27 @@ import Main.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.InvalidationListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Line;
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import model.businessObject.AES;
 import model.businessObject.RetrofitCore;
+import model.dataAcessObject.ArchiveDAO;
+import model.dataAcessObject.TextDAO;
 import model.dataAcessObject.archive_api;
 import model.valueObject.Archive;
 import model.valueObject.User;
@@ -43,41 +38,35 @@ import retrofit2.Retrofit;
 
 public class ControllerPrincipal implements Initializable {
 
-    File file = null;
-    public User user;
+    public static User user;
+    public File file;
+    private static final ExecutorService threadpool = Executors.newFixedThreadPool(3);
 
-    @FXML
-    private ImageView BGlogin;
-    @FXML
-    private Button bFechar;
     @FXML
     private ImageView imgFechar;
     @FXML
-    private Button bMinimizar;
-    @FXML
     private ImageView imgMinimizar;
     @FXML
-    private Line line;
+    private AnchorPane parent;
     @FXML
-    private Label lControladorTabela;
+    private Pane content;
     @FXML
-    private TableView<Archive> table;
+    private TextField tfSearch;
     @FXML
-    private TableColumn<Archive, String> tableId;
+    private Button buttonEdit;
     @FXML
-    private TableColumn<Archive, String> tableNome;
+    private Button buttonNew;
     @FXML
-    private TableColumn<Archive, String> tableStatus;
+    private Button btClose;
     @FXML
-    private Button bAdicionarArquivo;
+    private Button btMinimize;
     @FXML
-    private Button bRemoverArquivo;
-    @FXML
-    private Label lNomeLogo;
+    private Label lNome;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        Main.makeDragble(parent);
+        lNome.setText(user.getName());
     }
 
     @FXML
@@ -96,51 +85,57 @@ public class ControllerPrincipal implements Initializable {
     }
 
     @FXML
-    private void actionPerformed(ActionEvent event) {
-        System.out.println(event.getSource());
-        if (event.getSource() == bAdicionarArquivo) {
-            System.out.println("Adicionar :");
-            JFileChooser chooser = new JFileChooser();
-            FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                    "arquivo", "txt");
-            chooser.setFileFilter(filter);
-            int returnVal = chooser.showOpenDialog(null);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                System.out.println("You chose to open this file: "
-                        + chooser.getSelectedFile().getName());
-                file = chooser.getSelectedFile();
+    private void btNew(ActionEvent event) {
+        try {
+            file = ArchiveDAO.read();
+
+            String content = TextDAO.readText(file);
+            System.out.println("Directorio: " + file.getCanonicalPath().substring(0, file.getCanonicalPath().lastIndexOf("\\") + 1));
+            System.out.println("nome: " + file.getName());
+
+            Task tarefa = new Task() {
+
+                @Override
+                protected String call() throws Exception {
+                    return AES.encrypt(content.getBytes(), user.getSenha().getBytes());
+                }
+
+                @Override
+                protected void succeeded() {
+                    System.out.println("Cifrado: "+ getValue());
+                   
+                }
+            };
+            Thread t = new Thread(tarefa);
+            t.setDaemon(true);
+            t.start();
+
+            while (!tarefa.isDone()) {
+                System.out.println("PRocessando");
             }
 
-            try {
-                String encodeFileToBase64Binary = RetrofitCore.encodeFileToBase64Binary(file);
-                System.out.println(encodeFileToBase64Binary);
+            String scifrado = (String) tarefa.getValue();
+            System.out.println("Recebido: " + scifrado);
+            byte[] cifrado = scifrado.getBytes();
+            threadpool.shutdown();
+            //byte[] decifrado = aes.decrypt(cifrado, user.getSenha().getBytes());
+            System.out.println("Cifrado: " + cifrado.toString());
 
-                Retrofit retrofit = RetrofitCore.retrofit();
-                archive_api api = retrofit.create(archive_api.class);
+            String encodeFileToBase64Binary = RetrofitCore.encodeFileToBase64Binary(file);
+            System.out.println(encodeFileToBase64Binary);
 
-                Archive arquivo = new Archive();
-                arquivo.setName(file.getName());
-                arquivo.setFile(encodeFileToBase64Binary);
+            Retrofit retrofit = RetrofitCore.retrofit();
+            archive_api api = retrofit.create(archive_api.class);
 
-                Call<Archive> call = api.newArchive(RetrofitCore.getHeaders(), arquivo);
-                Archive u = (Archive) call.execute().body();
-                System.out.println("URL: " + RetrofitCore.BASE_URL + u.getUrl());
-                
-                table.setItems(listaDeClientes());
-            } catch (IOException ex) {
-                Logger.getLogger(ControllerPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Archive arquivo = new Archive();
+            arquivo.setName(file.getName());
+            arquivo.setFile(encodeFileToBase64Binary);
 
+            Call<Archive> call = api.newArchive(RetrofitCore.getHeadersTESTE(), arquivo);
+        } catch (IOException ex) {
+            System.out.println("Erro = " + ex.getMessage());
         }
-    }
-    
-    private ObservableList<Archive> listaDeClientes() {
-        return FXCollections.observableArrayList(
-                new Archive(1, "teste.txt", "Rua Alvenaria 22"),
-                new Archive(1, "teste.txt", "Rua Alvenaria 22"),
-                new Archive(1, "teste.txt", "Rua Alvenaria 22")
-               
-        );
+
     }
 
     @FXML
@@ -157,4 +152,10 @@ public class ControllerPrincipal implements Initializable {
     private void minizarOnAction(ActionEvent event) {
         Main.minimizeScreen();
     }
+
+    @FXML
+    private void voltarLogin(ActionEvent event) {
+        Main.changeScreen("TelaLogin");
+    }
+
 }
