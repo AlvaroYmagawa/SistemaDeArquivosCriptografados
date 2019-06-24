@@ -8,7 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="CryptoFile.jar" size="307190" download="eager" />
+=======
+    <jar href="CryptoFile.jar" size="307261" download="eager" />
+>>>>>>> 9565bef7ca799c82b535dd28654466ccbf98362a
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="CryptoFile" >
     <param name="requiredFXVersion" value="8.0+"/>
