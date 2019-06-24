@@ -5,12 +5,21 @@
  */
 package Control;
 
+import Model.Arquivo;
+import Model.ArquivoDAO;
+import Model.ListaArquivo;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -22,18 +31,40 @@ public class ControllerPrincipal implements Initializable {
     @FXML private ImageView imgMinimizar;
     @FXML private AnchorPane parent;
     @FXML private Pane content;
-    @FXML
-    private Button bVoltar;
-    @FXML
-    private ImageView imgVoltar;
-    @FXML
-    private Button bSalvar;
-    @FXML
-    private ImageView imgSalvar;
-
+    
+    
+    //Parte de controle de TableView
+    @FXML private TableView<ListaArquivo> table;
+    @FXML private TableColumn<ListaArquivo, String> tcNomeArquivo;
+    @FXML private TableColumn<ListaArquivo, String> tcProprietario;
+    @FXML private TableColumn<ListaArquivo, String> tcStatus;
+    
+    public ArquivoDAO arq = new ArquivoDAO();
+    private final List<Arquivo> arqList = arq.listArq();
+    private final ObservableList<ListaArquivo> obl = FXCollections.observableArrayList();
+    //---------------------------------
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Main.makeDragble(parent);
+        populaTabela();
+    }
+    
+    private void populaTabela(){
+        if(obl.isEmpty()){
+            obl.clear();
+        }
+        
+        arqList.forEach((arquivo) -> {
+            ListaArquivo list = new ListaArquivo(arquivo.getNomeArquivo(), arquivo.getHashArquivos(), arquivo.getDadoArquivos());
+            obl.add(list);
+        });
+        
+        tcNomeArquivo.setCellValueFactory(new PropertyValueFactory<>("NomeArquivo"));
+        tcProprietario.setCellValueFactory(new PropertyValueFactory<>("HashCode"));
+        tcStatus.setCellValueFactory(new PropertyValueFactory<>("dadosArquivo"));
+        table.setItems(obl);
     }
 
     @FXML private void fecharMouseExited(MouseEvent event) {
@@ -65,29 +96,6 @@ public class ControllerPrincipal implements Initializable {
           Main.changeScreen("TelaLogin");
     }
 
-    @FXML
-    private void voltarMouseExited(MouseEvent event) {
-    }
-
-    @FXML
-    private void voltarMouseEnter(MouseEvent event) {
-    }
-
-    @FXML
-    private void voltarOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void salvarMouseExited(MouseEvent event) {
-    }
-
-    @FXML
-    private void salvarMouseEnter(MouseEvent event) {
-    }
-
-    @FXML
-    private void salvarOnAction(ActionEvent event) {
-    }
     
     
 }

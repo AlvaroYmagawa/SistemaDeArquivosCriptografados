@@ -1,7 +1,6 @@
 package Control;
 
 
-import java.awt.geom.Rectangle2D;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +24,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         stanceStage = stage;
         //Fazer isso para cada nova interface criada
+        
         Parent loginFxml = FXMLLoader.load(getClass().getResource("/View/TelaLogin.fxml"));
         loginScene = new Scene(loginFxml);
         Parent mainScreenFxml = FXMLLoader.load(getClass().getResource("/View/TelaPrincipal.fxml"));
