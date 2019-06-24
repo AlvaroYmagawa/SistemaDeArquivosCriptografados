@@ -26,12 +26,12 @@ public class RetrofitCore {
     public static final String BASE_URL = "http://serverseguranca.herokuapp.com/";
     
     
-    public static Map<String, String> getHeaders() {
+    public static Map<String, String> getHeaders(String token, String email) {
         Map<String, String> headers = new HashMap<>();
 
 
-        headers.put("X-User-Token", "TOKEN AQUI");
-        headers.put("X-User-Email", "EMAIL AQUI");
+        headers.put("X-User-Token", token);
+        headers.put("X-User-Email", email);
 
         return headers;
     }

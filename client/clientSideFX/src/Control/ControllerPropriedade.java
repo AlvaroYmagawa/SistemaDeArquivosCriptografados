@@ -6,36 +6,24 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Line;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 
 public class ControllerPropriedade implements Initializable {
 
-    @FXML private Button bFechar;
     @FXML private ImageView imgFechar;
-    @FXML private Button bMinimizar;
     @FXML private ImageView imgMinimizar;
-    @FXML private Line line;
-    @FXML private TextArea taDados;
-    @FXML private Line line1;
-    @FXML private ImageView BGlogin;
-    @FXML private Button bSalvar;
     @FXML private ImageView imgSalvar;
-    @FXML private Label lNomeArquivo;
-    @FXML private ImageView imgCompartilhar;
-    @FXML private Button bVoltar;
     @FXML private ImageView imgVoltar;
-    @FXML
-    private Button bCompartilhar;
+    @FXML private AnchorPane parent;
+    @FXML private Pane content;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        Main.makeDragble(parent);
     }    
 
     @FXML private void fecharMouseExited(MouseEvent event) {
@@ -88,6 +76,11 @@ public class ControllerPropriedade implements Initializable {
     @FXML
     private void bCompartilharOnAction(ActionEvent event) {
         Main.changeScreen("TelaCompartilhamento");
+    }
+
+    @FXML
+    private void voltarLogin(ActionEvent event) {
+        Main.changeScreen("TelaLogin");
     }
     
 }

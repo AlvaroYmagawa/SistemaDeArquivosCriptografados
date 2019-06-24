@@ -6,9 +6,12 @@
 package model.dataAcessObject;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.businessObject.RetrofitCore;
 import model.valueObject.User;
+import retrofit2.Call;
+import retrofit2.Retrofit;
 
 /**
  *
@@ -16,6 +19,19 @@ import model.valueObject.User;
  */
 public class UserDAO {
 
-   
+   public static User read(User user){
+       try {
+           Retrofit retrofit = RetrofitCore.retrofit();
+           user_api api = retrofit.create(user_api.class);
+           
+           Call<User> call = api.Signin(user);
+           
+           User u = call.execute().body();
+           return u;
+       } catch (IOException ex) {
+           System.out.println("Erro - "+ex.getMessage());
+           return null;
+       }
+   }
 
 }

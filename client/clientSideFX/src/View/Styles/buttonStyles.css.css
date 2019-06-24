@@ -1,0 +1,30 @@
+.button{
+    -fx-background-color: orange;
+    -fx-background-radius: 22;
+    -fx-text-fill:  #290948;
+}
+
+.button:hover{
+    -fx-background-color: #d35506;
+}
+
+.input{
+    -fx-background-radius: 22;
+}
+
+.option{
+   -fx-text-fill:  orange;
+}
+
+.option:hover{
+    -fx-text-fill: #d35506;
+}
+
+.colunm{
+    -fx-background-color:   #290948;
+    -fx-border-color: #340e5b;
+}
+
+.table{
+   -fx-border-color: #340e5b; 
+}
