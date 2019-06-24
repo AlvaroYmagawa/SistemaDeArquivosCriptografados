@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +17,6 @@
          </font>
       </Label>
       <Label fx:id="lAdicionarUsuário" layoutX="14.0" layoutY="74.0" text="Adicionar Pessoas" textFill="#e4e2e2" />
-      <ComboBox fx:id="cbAdicionarUsuário" layoutX="14.0" layoutY="104.0" prefHeight="34.0" prefWidth="475.0" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;" />
       <ComboBox fx:id="cbPermissão" layoutX="499.0" layoutY="104.0" onAction="#cbPermissãoOnAction" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2; -fx-font-color: orange;" />
       <Label layoutX="17.0" layoutY="152.0" prefHeight="17.0" prefWidth="110.0" text="Compartilhado com " textFill="#e4e2e2" />
       <Button fx:id="bAdicionarUsuário" contentDisplay="CENTER" layoutX="17.0" layoutY="213.0" mnemonicParsing="false" onAction="#bAdcionarUsuárioOnAction" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: orange;" stylesheets="@Styles/buttonStyles.css.css" text="Concluído" textFill="#340e5b" />
@@ -26,5 +26,10 @@
             <Image url="@../Images/pen.png" />
          </image>
       </ImageView>
+      <TextField focusTraversable="false" layoutX="17.0" layoutY="104.0" prefHeight="34.0" prefWidth="465.0" style="-fx-background-color: #340e5b; -fx-text-fill: #e4e2e2;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
