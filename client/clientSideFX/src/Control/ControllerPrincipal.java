@@ -5,24 +5,24 @@
  */
 package Control;
 
+import static Control.ControllerPrincipal.user;
 import Main.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -33,6 +33,7 @@ import model.dataAcessObject.ArchiveDAO;
 import model.dataAcessObject.TextDAO;
 import model.dataAcessObject.archive_api;
 import model.valueObject.Archive;
+import model.valueObject.ListaArquivo;
 import model.valueObject.User;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -41,12 +42,7 @@ public class ControllerPrincipal implements Initializable {
 
     public static User user;
     public File file;
-    private static final ExecutorService threadpool = Executors.newFixedThreadPool(3);
-    public ArchiveDAO arq = new ArchiveDAO();
-    private final List<Archive> arqList = ArchiveDAO.read(user.getEmail(), user.getToken());
-    private final ObservableList<Archive> obl = FXCollections.observableArrayList();
-    
-    
+    private Task task;
     @FXML
     private ImageView imgFechar;
     @FXML
@@ -56,41 +52,26 @@ public class ControllerPrincipal implements Initializable {
     @FXML
     private Pane content;
     @FXML
-    private TextField tfSearch;
-    @FXML
-    private Button buttonEdit;
-    @FXML
-    private Button buttonNew;
-    @FXML
-    private Button btClose;
-    @FXML
-    private Button btMinimize;
-    @FXML
     private Label lNome;
+    @FXML
+    private TableView<ListaArquivo> table;
+    @FXML
+    private TableColumn<ListaArquivo, String> tcNomeArquivo;
+    @FXML
+    private TableColumn<ListaArquivo, String> tcProprietario;
+    @FXML
+    private TableColumn<ListaArquivo, String> tcStatus;
+    @FXML
+    private Button btEdit;
+    @FXML
+    private Button btNew;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Main.makeDragble(parent);
         lNome.setText(user.getName());
-        populaTabela();
     }
-    
-    private void populaTabela(){
-        if(obl.isEmpty()){
-            obl.clear();
-        }
-        
-        arqList.forEach((arquivo) -> {
-            ListaArquivo list = new ListaArquivo(arquivo.getNomeArquivo(), arquivo.getHashArquivos(), arquivo.getDadoArquivos());
-            obl.add(list);
-        });
-        
-        tcNomeArquivo.setCellValueFactory(new PropertyValueFactory<>("NomeArquivo"));
-        tcProprietario.setCellValueFactory(new PropertyValueFactory<>("HashCode"));
-        tcStatus.setCellValueFactory(new PropertyValueFactory<>("dadosArquivo"));
-        table.setItems(obl);
-    }
-    
+
     @FXML
     private void fecharMouseExited(MouseEvent event) {
         imgFechar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/close.png")));
@@ -105,60 +86,67 @@ public class ControllerPrincipal implements Initializable {
     private void fecharOnAction(ActionEvent event) {
         Main.closeScreen();
     }
-
+    
     @FXML
     private void btNew(ActionEvent event) {
         try {
+            System.out.println("New");
+
             file = ArchiveDAO.read();
 
             String content = TextDAO.readText(file);
             System.out.println("Directorio: " + file.getCanonicalPath().substring(0, file.getCanonicalPath().lastIndexOf("\\") + 1));
             System.out.println("nome: " + file.getName());
+            
+            btNew.setOnAction(cenario);
+            
+            
+            String scifrado = (String) task.getValue();
 
-            Task tarefa = new Task() {
-
-                @Override
-                protected String call() throws Exception {
-                    return AES.encrypt(content.getBytes(), user.getSenha().getBytes());
-                }
-
-                @Override
-                protected void succeeded() {
-                    System.out.println("Cifrado: "+ getValue());
-                   
-                }
-            };
-            Thread t = new Thread(tarefa);
-            t.setDaemon(true);
-            t.start();
-
-            while (!tarefa.isDone()) {
-                System.out.println("PRocessando");
-            }
-
-            String scifrado = (String) tarefa.getValue();
-            System.out.println("Recebido: " + scifrado);
+            System.out.println(
+                    "Recebido: " + scifrado);
             byte[] cifrado = scifrado.getBytes();
-            threadpool.shutdown();
+
             //byte[] decifrado = aes.decrypt(cifrado, user.getSenha().getBytes());
-            System.out.println("Cifrado: " + cifrado.toString());
+            System.out.println(
+                    "Cifrado: " + cifrado.toString());
 
             String encodeFileToBase64Binary = RetrofitCore.encodeFileToBase64Binary(file);
+
             System.out.println(encodeFileToBase64Binary);
 
             Retrofit retrofit = RetrofitCore.retrofit();
             archive_api api = retrofit.create(archive_api.class);
 
             Archive arquivo = new Archive();
+
             arquivo.setName(file.getName());
             arquivo.setFile(encodeFileToBase64Binary);
 
             Call<Archive> call = api.newArchive(RetrofitCore.getHeadersTESTE(), arquivo);
         } catch (IOException ex) {
-            System.out.println("Erro = " + ex.getMessage());
+            Logger.getLogger(ControllerPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
+    EventHandler<ActionEvent> cenario = e -> {
+        
+
+         new Task() {
+
+            @Override
+            protected String call() throws Exception {
+                return "leandro";
+            }
+
+            @Override
+            protected void succeeded() {
+                System.out.println("Concluido");
+            }
+        };
+        Thread t = new Thread(task);
+        t.setDaemon(true);
+        t.start();
+    };
 
     @FXML
     private void MinimizarMouseExited(MouseEvent event) {
@@ -178,6 +166,14 @@ public class ControllerPrincipal implements Initializable {
     @FXML
     private void voltarLogin(ActionEvent event) {
         Main.changeScreen("TelaLogin");
+    }
+
+    @FXML
+    private void excluir(ActionEvent event) {
+    }
+
+    @FXML
+    private void tableOnclick(MouseEvent event) {
     }
 
 }

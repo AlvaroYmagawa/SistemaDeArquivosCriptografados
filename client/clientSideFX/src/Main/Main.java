@@ -20,7 +20,6 @@ public class Main extends Application {
     public static Scene shareScene;
     public static double x = 0;
     public static double y = 0;
-    public static ControllerPrincipal pricipal = new ControllerPrincipal();
     
     @Override
     public void start(Stage stage) throws Exception {

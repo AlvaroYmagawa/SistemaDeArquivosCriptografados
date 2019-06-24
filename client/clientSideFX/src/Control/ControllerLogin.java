@@ -6,7 +6,6 @@
 package Control;
 
 import Main.Main;
-import static Main.Main.mainScreenScene;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,14 +27,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.businessObject.Diffie;
 import model.businessObject.Hash;
-import model.businessObject.RetrofitCore;
 import model.dataAcessObject.UserDAO;
-import model.dataAcessObject.user_api;
 import model.valueObject.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 /**
  * FXML Controller class
@@ -71,34 +64,33 @@ public class ControllerLogin implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void brLogarOnAction(ActionEvent event) {
+
         try {
             User user = new User();
 //            user.setEmail(tfEmail.getText());
 //            user.setSenha(Hash.gen(tfPasswd.getText()));
             user.setEmail("ld_silva13@hotmail.com");
-            user.setSenha(Hash.gen("123456")); 
-            
+            user.setSenha(Hash.gen("123456"));
+
             Diffie df = new Diffie("123456");
             String publica = df.publicKey().toString();
-            
-            System.out.println("Publica: "+publica);
-            
+
+            System.out.println("Publica: " + publica);
+
             user.setKey(publica);
-            
+
             ControllerPrincipal.user = UserDAO.read(user);
             Parent mainScreenFxml = FXMLLoader.load(getClass().getResource("/View/TelaPrincipal.fxml"));
             Main.mainScreenScene = new Scene(mainScreenFxml);
             Main.changeScreen("TelaPrincipal");
-           
         } catch (IOException ex) {
-            System.out.println("Erro - "+ex.getMessage());
+            Logger.getLogger(ControllerLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     @FXML
@@ -128,5 +120,5 @@ public class ControllerLogin implements Initializable {
     @FXML
     private void sair(KeyEvent event) {
     }
-    
+
 }
