@@ -17,6 +17,9 @@ import model.businessObject.Hash;
  */
 public class User implements Serializable{
     
+    @SerializedName("id")
+    int id;
+    
     @SerializedName("name")
     String Name;
     
@@ -33,6 +36,16 @@ public class User implements Serializable{
     @SerializedName("public_key")
     String key;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
+    
     public String getKey() {
         return key;
     }

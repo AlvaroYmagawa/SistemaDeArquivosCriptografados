@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  *
@@ -21,4 +22,10 @@ public interface archive_api {
     @POST("/api/archive.json")
     Call<Archive> newArchive(@HeaderMap Map<String, String> map, @Body Archive archive);
     
+    
+    @POST("/api/get_archives.json")
+    Call<Archive> getArchive(@HeaderMap Map<String, String> map, @Query("archive_id") String name);
+    
+    @POST("/api/get_archives.json")
+    Call<Archive> getArchive(@HeaderMap Map<String, String> map);
 }

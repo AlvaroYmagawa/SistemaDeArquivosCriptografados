@@ -9,12 +9,12 @@ import Main.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -41,7 +42,11 @@ public class ControllerPrincipal implements Initializable {
     public static User user;
     public File file;
     private static final ExecutorService threadpool = Executors.newFixedThreadPool(3);
-
+    public ArchiveDAO arq = new ArchiveDAO();
+    private final List<Archive> arqList = ArchiveDAO.read(user.getEmail(), user.getToken());
+    private final ObservableList<Archive> obl = FXCollections.observableArrayList();
+    
+    
     @FXML
     private ImageView imgFechar;
     @FXML
@@ -67,8 +72,25 @@ public class ControllerPrincipal implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Main.makeDragble(parent);
         lNome.setText(user.getName());
+        populaTabela();
     }
-
+    
+    private void populaTabela(){
+        if(obl.isEmpty()){
+            obl.clear();
+        }
+        
+        arqList.forEach((arquivo) -> {
+            ListaArquivo list = new ListaArquivo(arquivo.getNomeArquivo(), arquivo.getHashArquivos(), arquivo.getDadoArquivos());
+            obl.add(list);
+        });
+        
+        tcNomeArquivo.setCellValueFactory(new PropertyValueFactory<>("NomeArquivo"));
+        tcProprietario.setCellValueFactory(new PropertyValueFactory<>("HashCode"));
+        tcStatus.setCellValueFactory(new PropertyValueFactory<>("dadosArquivo"));
+        table.setItems(obl);
+    }
+    
     @FXML
     private void fecharMouseExited(MouseEvent event) {
         imgFechar.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/close.png")));
