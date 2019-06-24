@@ -99,14 +99,23 @@ public class ControllerPrincipal implements Initializable {
 
     @FXML
     private void tableOnclick(MouseEvent event) {
-        System.out.println(table.getSelectionModel().getSelectedItem().getDadosArquivo());
-        if (JOptionPane.showOptionDialog(null,"Deseja Abrir o arquivo"+table.getSelectionModel().getSelectedItem().getDadosArquivo(),"Quit?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null, null, null) == 0){
-            Main.changeScreen("TelaPropriedade");
+        if(event.getClickCount() == 2 && !event.isConsumed()){
+            event.consume();
+            abrirArquivo();
         }
     }
     
+    private void abrirArquivo(){
+        if (JOptionPane.showOptionDialog(null,"Deseja Abrir o arquivo"+table.getSelectionModel().getSelectedItem().getDadosArquivo(),"Quit?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null, null, null) == 0){
+            Main.changeScreen("TelaPropriedade");
+            }
+    }
+    
+    @FXML
     private void excluir(){
-        table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
+        if (JOptionPane.showOptionDialog(null,"Deseja excluir o arquivo"+table.getSelectionModel().getSelectedItem().getDadosArquivo(),"Quit?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null, null, null) == 0){
+            table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
+        }
     }
 
     
