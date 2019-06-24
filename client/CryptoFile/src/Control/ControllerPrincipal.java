@@ -24,6 +24,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javax.swing.JOptionPane;
 
 public class ControllerPrincipal implements Initializable {
 
@@ -94,6 +95,18 @@ public class ControllerPrincipal implements Initializable {
     @FXML
     private void voltarLogin(ActionEvent event) {
           Main.changeScreen("TelaLogin");
+    }
+
+    @FXML
+    private void tableOnclick(MouseEvent event) {
+        System.out.println(table.getSelectionModel().getSelectedItem().getDadosArquivo());
+        if (JOptionPane.showOptionDialog(null,"Deseja Abrir o arquivo"+table.getSelectionModel().getSelectedItem().getDadosArquivo(),"Quit?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null, null, null) == 0){
+            Main.changeScreen("TelaPropriedade");
+        }
+    }
+    
+    private void excluir(){
+        table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
     }
 
     

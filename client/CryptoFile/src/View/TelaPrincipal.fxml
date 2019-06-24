@@ -43,7 +43,7 @@
                </image>
             </ImageView>
             <Button layoutX="1143.0" layoutY="68.0" mnemonicParsing="false" onAction="#voltarLogin" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: none;" styleClass="option" stylesheets="@Styles/buttonStyles.css.css" text="Alterar Conta" textFill="#d1a006" />
-            <TableView fx:id="table" layoutX="120.0" layoutY="204.0" prefHeight="452.0" prefWidth="1110.0" style="-fx-background-color: #290948;" styleClass="table" stylesheets="@Styles/buttonStyles.css.css">
+            <TableView fx:id="table" layoutX="120.0" layoutY="204.0" onMouseClicked="#tableOnclick" prefHeight="452.0" prefWidth="1110.0" style="-fx-background-color: #290948; -fx-text-fill: white;" styleClass="table" stylesheets="@Styles/buttonStyles.css.css">
               <columns>
                 <TableColumn fx:id="tcNomeArquivo" prefWidth="370.0" styleClass="colunm" text="Nome do arquivo" />
                 <TableColumn fx:id="tcProprietario" prefWidth="370.0" styleClass="colunm" text="Proprietário" />
