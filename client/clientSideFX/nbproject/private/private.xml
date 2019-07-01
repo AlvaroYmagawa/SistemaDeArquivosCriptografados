@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/model/valueObject/User.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/Control/ControllerLogin.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/Main/Main.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/model/valueObject/Archive.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/model/businessObject/RetrofitCore.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/Control/ControllerPrincipal.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/model/dataAcessObject/user_api.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/clientSideFX/src/model/dataAcessObject/sharing_api.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

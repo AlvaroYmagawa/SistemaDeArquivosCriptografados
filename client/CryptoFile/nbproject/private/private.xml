@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerPropriedade.java</file>
-            <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerPrincipal.java</file>
-            <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/View/Styles/buttonStyles.css.css</file>
-            <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerLogin.java</file>
-            <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerCompartilhamento.java</file>
-            <file>file:/C:/Users/administrador2/Desktop/Desktop/GitHub/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/Main.java</file>
-=======
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/CryptoFile/src/View/Styles/buttonStyles.css.css</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerPrincipal.java</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/CryptoFile/src/View/TelaPrincipal.fxml</file>
-            <file>file:/D:/MEGA/git/SistemaDeArquivosCriptografados/client/CryptoFile/src/Control/ControllerLogin.java</file>
->>>>>>> 03b59c3fc7da77825970e00b949b3678ab8fdefb
-        </group>
+        <group/>
     </open-files>
 </project-private>

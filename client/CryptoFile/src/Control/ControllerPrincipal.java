@@ -9,7 +9,6 @@ import Model.Arquivo;
 import Model.ArquivoDAO;
 import Model.ListaArquivo;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
